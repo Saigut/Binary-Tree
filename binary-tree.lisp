@@ -1,4 +1,4 @@
-;;;; A bianry tree base on lists with three elements and its recursive traversal.
+;;;; A bianry tree base on lists with three elements and its recursive traversals.
 ;;;; eg. (A B C) , (A (B D E) (C F G)).
 
 ;;; The binary tree.
