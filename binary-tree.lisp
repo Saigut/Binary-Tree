@@ -14,6 +14,13 @@
       `,(caddr btree)))
 
 ;;; Traverse the tree.
+;;; Helper functions & macros.
+(defmacro if-not-cons-return (funcnm)
+  `(unless (typep btree 'cons)
+     (if (not (typep btree 'null))
+	 (format t "~a " btree))
+      (return-from ,funcnm nil)))
+
 ;; Pre-order traverse.
 (defun pre-traverse (btree)
   (if-not-cons-return pre-traverse)
@@ -34,13 +41,6 @@
   (post-traverse (left-subtree btree))
   (post-traverse (right-subtree btree))
   (format t "~a " (the-entry btree)))
-
-;;; Helper functions & macros.
-(defmacro if-not-cons-return (funcnm)
-  `(unless (typep `,btree 'cons)
-     (if (not (typep `,btree 'null))
-	 (format t "~a " btree))
-      (return-from ,funcnm nil)))
 
 ;;; Tests
 (in-traverse '(A B C))
