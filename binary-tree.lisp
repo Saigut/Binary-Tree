@@ -1,5 +1,6 @@
-;;;; A bianry tree base on lists with three elements and its recursive traversals.
+;;;; A bianry tree based on lists with three elements and its recursive traversals.
 ;;;; eg. (A B C) , (A (B D E) (C F G)).
+
 
 ;;; The binary tree.
 (defun the-entry (btree)
@@ -13,7 +14,9 @@
       nil
       `,(caddr btree)))
 
+
 ;;; Traverse the tree.
+
 ;;; Helper functions & macros.
 (defmacro if-not-cons-return (funcnm)
   `(unless (typep btree 'cons)
@@ -41,6 +44,7 @@
   (post-traverse (left-subtree btree))
   (post-traverse (right-subtree btree))
   (format t "~a " (the-entry btree)))
+
 
 ;;; Tests
 (in-traverse '(A B C))
